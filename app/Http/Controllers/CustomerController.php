@@ -13,7 +13,7 @@ class CustomerController extends Controller
     {
         //return view ('/home');
         $customers = Customer::all();
-        return view('upload/customer/{id}', compact('contacts'));
+        return view('upload.customer', compact('customers'));
 
     }
 
@@ -36,7 +36,6 @@ class CustomerController extends Controller
             $request -> validate([
                 'email' => 'unique:employees,email,$this->id,id',
                 'tax_id' => 'required',
-                'address' => 'required',
                 'customer_file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'customer_file1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);

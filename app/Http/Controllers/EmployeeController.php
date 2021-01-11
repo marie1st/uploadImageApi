@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 use App\Models\employee;
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManager;
-use Image;
+use Intervention\Image\ImageManagerStatic as Image;
 
 
 class EmployeeController extends Controller
 {
     public function index()
     {
-        //return view ('/home');
+        //return view ('/welcome');
         $employees = Employee::all();
-        return view('upload/employee/{id}', compact('contacts'));
+        return view('upload.employee', compact('employees'));
 
     }
 
@@ -36,7 +35,6 @@ class EmployeeController extends Controller
             $request -> validate([
                 'email' => 'unique:employees,email,$this->id,id',
                 'employee_id' => 'required',
-                'address' => 'required',
                 'company_file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'company_file1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
