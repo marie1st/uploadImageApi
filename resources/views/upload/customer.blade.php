@@ -1,6 +1,6 @@
 <div class="container">
     <div>
-        <form action="{{action ('CustomerController@store')}}" method="post" enctype="multipart/form-data">
+        <form action="{{action ([App\Http\Controllers\CustomerController::class,'store'])}}" method="post" enctype="multipart/form-data">
         @csrf
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -25,17 +25,17 @@
             <br>
             <div class = "form-group">
                 <label>tax_id</label>
-                <input type ="text" name="employee_id" class="form-control" placeholder="Phone">
+                <input type ="text" name="tax_id" class="form-control" placeholder="tax_id">
             </div>
             <br>
             <div class="form-group">
-                <label for="company_file">Customer File#1:</label>
-                <input type="file" class="form-control-file" id="company_file" name="company_file">
+                <label for="customer_file">Customer File#1:</label>
+                <input type="file" class="form-control-file" id="customer_file" name="customer_file">
             </div>
             <br>
             <div class="form-group">
-                <label for="company_file1">Customer File#2:</label>
-                <input type="file" class="form-control-file" id="company_file1" name="company_file1">
+                <label for="customer_file1">Customer File#2:</label>
+                <input type="file" class="form-control-file" id="customer_file1" name="customer_file1">
             </div>
 
        
@@ -56,4 +56,3 @@
 
     </div>
 </div>
-@endsection
