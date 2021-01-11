@@ -64,7 +64,7 @@ class CustomerController extends Controller
                     'customer_file1' => $filename1,
                 ]);
         
-                return redirect('/home')->with('success', 'Record is successfully saved.');
+                return redirect('/welcome')->with('success', 'Record is successfully saved.');
 
     }
  

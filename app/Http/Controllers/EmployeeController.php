@@ -35,8 +35,8 @@ class EmployeeController extends Controller
             $request -> validate([
                 'email' => 'unique:employees,email,$this->id,id',
                 'employee_id' => 'required',
-                'company_file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'company_file1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'employee_file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'employee_file1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
             
  
@@ -59,11 +59,11 @@ class EmployeeController extends Controller
                 Employee::create([
                     'email' => $request->get('email'),
                     'employee_id' => $request->get('employee_id'),
-                    'company_file' => $filename,
-                    'company_file1' => $filename1,
+                    'employee_file' => $filename,
+                    'employee_file1' => $filename1,
                 ]);
         
-                return redirect('/home')->with('success', 'Record is successfully saved.');
+                return redirect('/welcome')->with('success', 'Record is successfully saved.');
 
     }
  
